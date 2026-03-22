@@ -1,21 +1,21 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Dashboard from "./features/dashboard/Dashboard";
-import FamilyList from "./features/families/FamilyList";
-import StudentList from "./features/students/StudentList";
-import ClassList from "./features/classes/ClassList";
-import FeeSetup from "./features/fees/FeeSetup";
-import Login from "./features/auth/Login";
-import Register from "./features/auth/Register";
-import ProtectedRoute from "./components/common/ProtectedRoute";
-import FamilyDetails from "./features/families/FamilyDetails";
-import StudentDetails from "./features/students/StudentDetails";
-import MasterLayout from "./Layout/MasterLayout";
-import ClassDetails from "./features/classes/ClassDetails";
-import SettingsPage from "./features/settings/Setting";
-import MigrateTerms from "./features/settings/MigrateTerms";
-import PaymentHistory from "./features/fees/PaymentHistory";
-import PreviousBalances from "./features/previous_balance/Previousbalances";
-import Discounts from "./features/discount/Discounts";
+import Dashboard from "./features/dashboard/Dashboard.jsx";
+import FamilyList from "./features/families/FamilyList.jsx";
+import StudentList from "./features/students/StudentList.jsx";
+import ClassList from "./features/classes/ClassList.jsx";
+import FeeSetup from "./features/fees/FeeSetup.jsx";
+import Login from "./features/auth/Logi.jsxn";
+import Register from "./features/auth/Register.jsx";
+import ProtectedRoute from "./components/common/ProtectedRoute.jsx";
+import FamilyDetails from "./features/families/FamilyDetails.jsx";
+import StudentDetails from "./features/students/StudentDetails.jsx";
+import MasterLayout from "./Layout/MasterLayout.jsx";
+import ClassDetails from "./features/classes/ClassDetails.jsx";
+import SettingsPage from "./features/settings/Setting.jsx";
+import MigrateTerms from "./features/settings/MigrateTerms.jsx";
+import PaymentHistory from "./features/fees/PaymentHistory.jsx";
+import PreviousBalances from "./features/previous_balance/Previousbalances.jsx";
+import Discounts from "./features/discount/Discounts.jsx";
 
 export default function AppRoutes() {
   return (
