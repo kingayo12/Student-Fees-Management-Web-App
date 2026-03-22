@@ -4,7 +4,7 @@ import FamilyList from "./features/families/FamilyList.jsx";
 import StudentList from "./features/students/StudentList.jsx";
 import ClassList from "./features/classes/ClassList.jsx";
 import FeeSetup from "./features/fees/FeeSetup.jsx";
-import Login from "./features/auth/Logi.jsxn";
+import Login from "./features/auth/Login.jsx";
 import Register from "./features/auth/Register.jsx";
 import ProtectedRoute from "./components/common/ProtectedRoute.jsx";
 import FamilyDetails from "./features/families/FamilyDetails.jsx";
