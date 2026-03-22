@@ -1,9 +1,7 @@
+import AppRoutes from "./routes";
+
 function App() {
-  return (
-    <div>
-      <h1>Student & School Fees Management App</h1>
-    </div>
-  );
+  return <AppRoutes />;
 }
 
 export default App;
