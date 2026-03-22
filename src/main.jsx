@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./app/Apps.jsx";
+import App from "./app/Apps";
 import { AuthProvider } from "./context/AuthContext";
 import "datatables.net-dt/css/dataTables.dataTables.css";
 import "./styles/global.css";
