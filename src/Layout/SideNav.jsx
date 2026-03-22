@@ -15,7 +15,7 @@ export default function SideNav() {
   const location = useLocation(); // to highlight active link
 
   const navItems = [
-    { label: "Dashboard", path: "/dashboard", icon: <FaTachometerAlt /> },
+    { label: "Dashboard", path: "/", icon: <FaTachometerAlt /> },
     { label: "Families", path: "/families", icon: <FaUsers /> },
     { label: "Students", path: "/students", icon: <FaUserGraduate /> },
     { label: "Classes", path: "/classes", icon: <FaSchool /> },

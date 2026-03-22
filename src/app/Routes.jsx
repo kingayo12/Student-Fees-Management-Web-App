@@ -30,7 +30,7 @@ export default function AppRoutes() {
             <MasterLayout>
               <Routes>
                 <Route
-                  path='/dashboard'
+                  path='/'
                   element={
                     <ProtectedRoute>
                       <Dashboard />
