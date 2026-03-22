@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import Dashboard from "./features/dashboard/Dashboard.jsx";
+import Reports from "./features/dashboard/Reports.jsx";
 import FamilyList from "./features/families/FamilyList.jsx";
 import StudentList from "./features/students/StudentList.jsx";
 import ClassList from "./features/classes/ClassList.jsx";
@@ -21,16 +23,22 @@ export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public */}
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
 
+        {/* Redirect bare / → /dashboard */}
+        <Route path='/' element={<Navigate to='/dashboard' replace />} />
+
+        {/* Protected pages inside layout */}
         <Route
           path='/*'
           element={
             <MasterLayout>
               <Routes>
+                {/* ✅ dashboard route (was "/" before — broke nav links) */}
                 <Route
-                  path='/'
+                  path='/dashboard'
                   element={
                     <ProtectedRoute>
                       <Dashboard />
@@ -46,12 +54,28 @@ export default function AppRoutes() {
                     </ProtectedRoute>
                   }
                 />
+                <Route
+                  path='/families/:id'
+                  element={
+                    <ProtectedRoute>
+                      <FamilyDetails />
+                    </ProtectedRoute>
+                  }
+                />
 
                 <Route
                   path='/students'
                   element={
                     <ProtectedRoute>
                       <StudentList />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path='/students/:id'
+                  element={
+                    <ProtectedRoute>
+                      <StudentDetails />
                     </ProtectedRoute>
                   }
                 />
@@ -64,33 +88,6 @@ export default function AppRoutes() {
                     </ProtectedRoute>
                   }
                 />
-
-                <Route
-                  path='/fees'
-                  element={
-                    <ProtectedRoute>
-                      <FeeSetup />
-                    </ProtectedRoute>
-                  }
-                />
-
-                <Route
-                  path='/families/:id'
-                  element={
-                    <ProtectedRoute>
-                      <FamilyDetails />
-                    </ProtectedRoute>
-                  }
-                />
-
-                <Route
-                  path='/students/:id'
-                  element={
-                    <ProtectedRoute>
-                      <StudentDetails />
-                    </ProtectedRoute>
-                  }
-                />
                 <Route
                   path='/classes/:id'
                   element={
@@ -99,20 +96,12 @@ export default function AppRoutes() {
                     </ProtectedRoute>
                   }
                 />
-                <Route
-                  path='/balance'
-                  element={
-                    <ProtectedRoute>
-                      <PreviousBalances />
-                    </ProtectedRoute>
-                  }
-                />
 
                 <Route
-                  path='/migrate'
+                  path='/fees'
                   element={
                     <ProtectedRoute>
-                      <MigrateTerms />
+                      <FeeSetup />
                     </ProtectedRoute>
                   }
                 />
@@ -125,8 +114,28 @@ export default function AppRoutes() {
                   }
                 />
 
+                {/* ✅ reports route was missing entirely */}
                 <Route
-                  path='/Discount'
+                  path='/reports'
+                  element={
+                    <ProtectedRoute>
+                      <Reports />
+                    </ProtectedRoute>
+                  }
+                />
+
+                <Route
+                  path='/balance'
+                  element={
+                    <ProtectedRoute>
+                      <PreviousBalances />
+                    </ProtectedRoute>
+                  }
+                />
+
+                {/* ✅ fixed capital D → lowercase */}
+                <Route
+                  path='/discount'
                   element={
                     <ProtectedRoute>
                       <Discounts />
@@ -142,12 +151,21 @@ export default function AppRoutes() {
                     </ProtectedRoute>
                   }
                 />
+                <Route
+                  path='/migrate'
+                  element={
+                    <ProtectedRoute>
+                      <MigrateTerms />
+                    </ProtectedRoute>
+                  }
+                />
+
+                {/* Catch-all */}
+                <Route path='*' element={<Navigate to='/dashboard' replace />} />
               </Routes>
             </MasterLayout>
           }
         />
-
-        {/* <Route path='/' element={<Navigate to='/dashboard' />} /> */}
       </Routes>
     </BrowserRouter>
   );
